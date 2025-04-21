@@ -4,7 +4,15 @@
 class HomeController{
 
      homePage(req,res){
-        res.send('home page')
+        res.render('home',{
+            title:"home page",
+            user:{
+                name:"subir",
+                email:"subir@gmail.com",
+                phone:"7788965656"
+
+            }
+        })
 
     }
 }
