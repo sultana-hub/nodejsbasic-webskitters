@@ -2,8 +2,11 @@
 const express=require('express')
 const ejs=require('ejs')
 
-const app=express()
+const dbCon=require('./app/config/dbcon')
+const dotenv=require('dotenv').config()
 
+const app=express()
+dbCon()
 
 app.set('view engine','ejs');
 app.set('views','views')
