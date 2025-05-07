@@ -1,5 +1,6 @@
 const ErrorCode = require("../helper/httpStatusCode");
 const StudentModel=require('../model/student')
+const fs=require('fs')
 
 
 class StudentApiController{
@@ -7,12 +8,17 @@ class StudentApiController{
     //create student
 
     async createStudent(req,res){
+        console.log(req.file);
+        
         try{
             //console.log(req.body);
             const{name,email,phone,city}=req.body
             const sdata=new StudentModel({
                 name,email,phone,city
             })
+            if(req.file){
+                sdata.image=req.file.path
+            }
             const data=await sdata.save()
 
             return res.status(ErrorCode.Create).json({

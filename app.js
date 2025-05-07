@@ -4,6 +4,7 @@ const ejs=require('ejs')
 
 const dbCon=require('./app/config/dbcon')
 const cors=require('cors')
+const path=require('path')
 
 const dotenv=require('dotenv').config()
 
@@ -19,6 +20,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use(express.static(__dirname + '/public'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 const webroute=require('./app/routes/webRouter')
 app.use(webroute)

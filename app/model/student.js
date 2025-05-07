@@ -20,6 +20,10 @@ const StudentSchema=new Schema({
     phone:{
         type:String,
         require:true
+    },
+    image:{
+        type:String,
+        require:true
     }
 
 },
