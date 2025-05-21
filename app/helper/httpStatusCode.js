@@ -1,11 +1,15 @@
 
 
 
-const ErrorCode={
-    Success:200,
+const httpStatusCode={
+    Ok:200,
     Create:201,
-    InternalServerError:500
+    InternalServerError:500,
+    BadRequest:400,
+    Unauthorized:401,
+    Forbidden:403,
+    NotFound:404
 }
 
 
-module.exports=ErrorCode
+module.exports=httpStatusCode

@@ -40,7 +40,6 @@ class StudentApiController{
         try{
             //console.log(req.body);
            const student=await StudentModel.find()
-
             return res.status(ErrorCode.Success).json({
                 status:true,
                 message:"get all student successfully",
