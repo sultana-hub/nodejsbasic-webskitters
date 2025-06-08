@@ -1,9 +1,7 @@
 
-
 const bcryptjs=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const httpStatusCode = require('../helper/httpStatusCode');
-
 
 const hashedPassword=(password)=>{
     const salt =10;
@@ -17,7 +15,6 @@ const comparePassword=(password,hashedPassword)=>{
     return bcryptjs.compareSync(password,hashedPassword)
 
 }
-
 
 const AuthCheck=(req,res,next)=>{
     const token=req?.body?.token||req?.headers['x-access-token']

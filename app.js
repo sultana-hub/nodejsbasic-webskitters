@@ -30,6 +30,9 @@ app.use('/api',StudentApiRoute)
 const authRoute=require('./app/routes/authRouter')
 app.use('/api',authRoute)
 
+const joiRoute=require('./app/routes/joiRouter')
+app.use(joiRoute)
+
 const port=3005
 
 app.listen(port,()=>{

@@ -82,8 +82,8 @@ class StudentApiController{
             const id=req.params.id
             
 
-           await StudentModel.findByIdAndUpdate(id,req.body)
-
+          const data= await StudentModel.findByIdAndUpdate(id,req.body)
+             
             return res.status(ErrorCode.Create).json({
                 status:true,
                 message:"Student Update successfully",
