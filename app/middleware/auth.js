@@ -19,13 +19,13 @@ const comparePassword=(password,hashedPassword)=>{
 const AuthCheck=(req,res,next)=>{
     const token=req?.body?.token||req?.headers['x-access-token']
     if(!token){
-        return res.status(httpStatusCode.BadRequest).json({
+        return res.status(httpStatusCode.Unauthorized).json({
                     status:false,
                     message:"please login first to access this apge"
                 })
     }
     try{
-        const decoded= jwt.verify(token,process.env.JWT_SECRECT_KEY)
+        const decoded= jwt.verify(token,process.env.JWT_SECRET_KEY)
         req.user=decoded
     }catch(error){
         return res.status(httpStatusCode.NotFound).json({
